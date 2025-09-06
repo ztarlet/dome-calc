@@ -71,10 +71,10 @@ button.button-styled {
 }
 
 #weaponToggleBtn {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 1001;
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 100001;
 }
 
 #result {
@@ -233,6 +233,7 @@ p {
   padding: 4px 6px;
   font-size: 12px;
 }
+
 
 
 
