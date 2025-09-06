@@ -78,7 +78,11 @@ button.button-styled {
   width: auto !important;
   min-width: unset !important;
   max-width: unset !important;
+  height: auto !important;
+  min-height: unset !important;
+  max-height: unset !important;
   display: inline-block !important;
+  box-sizing: border-box !important;
 }
 
 #result {
@@ -237,6 +241,7 @@ p {
   padding: 4px 6px;
   font-size: 12px;
 }
+
 
 
 
