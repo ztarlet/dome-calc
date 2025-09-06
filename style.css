@@ -198,6 +198,7 @@ p {
 
 #threeZoneContainer {
   display: flex;
+  position: relative;
   justify-content: space-between;
   gap: 40px;
   align-items: flex-start;
@@ -240,6 +241,7 @@ p {
   padding: 4px 6px;
   font-size: 12px;
 }
+
 
 
 
