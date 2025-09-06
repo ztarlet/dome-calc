@@ -56,7 +56,6 @@ select {
   background: linear-gradient(to bottom, #fff176, #ff9800);
   border: 2px solid black;
   padding: 5px 15px;
-  margin-top: 10px;
   font-size: 14px;
   color: #000;
   cursor: pointer;
@@ -241,6 +240,7 @@ p {
   padding: 4px 6px;
   font-size: 12px;
 }
+
 
 
 
