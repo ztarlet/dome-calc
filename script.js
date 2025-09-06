@@ -539,28 +539,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Column Hover
-  const table = document.getElementById("weaponTable");
-  if (table) {
-    const rows = Array.from(table.rows);
-
-    rows.forEach(row => {
-      Array.from(row.cells).forEach((cell, cellIndex) => {
-        cell.addEventListener("mouseenter", () => {
-          rows.forEach(r => {
-            if (r.cells[cellIndex]) {
-              r.cells[cellIndex].classList.add("highlight-hover");
-            }
-          });
+  function enableColumnHighlighting(tableId, highlightClass) {
+  const table = document.getElementById(tableId);
+  if (!table) return;
+  const rows = Array.from(table.rows);
+  rows.forEach(row => {
+    Array.from(row.cells).forEach((cell, cellIndex) => {
+      cell.addEventListener("mouseenter", () => {
+        rows.forEach(r => {
+          if (r.cells[cellIndex]) {
+            r.cells[cellIndex].classList.add(highlightClass);
+          }
         });
-
-        cell.addEventListener("mouseleave", () => {
-          rows.forEach(r => {
-            if (r.cells[cellIndex]) {
-              r.cells[cellIndex].classList.remove("highlight-hover");
-            }
-          });
+      });
+      cell.addEventListener("mouseleave", () => {
+        rows.forEach(r => {
+          if (r.cells[cellIndex]) {
+            r.cells[cellIndex].classList.remove(highlightClass);
+          }
         });
       });
     });
-  }
+  });
+}
 });
+
