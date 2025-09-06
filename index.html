@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <div style="text-align: center;">
+    <h1 class="main-title">DomeCalc</h1>
+  </div>
+  <link rel="stylesheet" href="https://ztarlet.github.io/dome-calc/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<!-- Equipment Panel -->
+<div id="weaponPanel" style="
+  position: fixed;
+  top: 0;
+  left: -30000px;
+  max-height: 70vh;
+  background-color: #ffffff;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 1000;
+">
+
+  <table id="weaponTable" style="width: 95%; font-size: 11px; border-collapse: collapse;">
+<thead>
+  <tr>
+    <th data-sort="name">Weapon</th>
+    <th data-sort="air"><img src="https://ztarlet.github.io/dome-calc/icons/air.png" height="15"></th>
+    <th data-sort="dark"><img src="https://ztarlet.github.io/dome-calc/icons/dark.png" height="15"></th>
+    <th data-sort="earth"><img src="https://ztarlet.github.io/dome-calc/icons/earth.png" height="15"></th>
+    <th data-sort="fire"><img src="https://ztarlet.github.io/dome-calc/icons/fire.png" height="15"></th>
+    <th data-sort="light"><img src="https://ztarlet.github.io/dome-calc/icons/light.png" height="15"></th>
+    <th data-sort="water"><img src="https://ztarlet.github.io/dome-calc/icons/water.png" height="15"></th>
+    <th data-sort="physical"><img src="https://ztarlet.github.io/dome-calc/icons/physical.png" height="15"></th>
+    <th data-sort="def_air"><img src="https://ztarlet.github.io/dome-calc/icons/air_def.png" height="15"></th>
+    <th data-sort="def_dark"><img src="https://ztarlet.github.io/dome-calc/icons/dark_def.png" height="15"></th>
+    <th data-sort="def_earth"><img src="https://ztarlet.github.io/dome-calc/icons/earth_def.png" height="15"></th>
+    <th data-sort="def_fire"><img src="https://ztarlet.github.io/dome-calc/icons/fire_def.png" height="15"></th>
+    <th data-sort="def_light"><img src="https://ztarlet.github.io/dome-calc/icons/light_def.png" height="15"></th>
+    <th data-sort="def_water"><img src="https://ztarlet.github.io/dome-calc/icons/water_def.png" height="15"></th>
+    <th data-sort="def_physical"><img src="https://ztarlet.github.io/dome-calc/icons/physical_def.png" height="15"></th>
+  </tr>
+</thead>
+    <tbody id="weaponTableBody"></tbody>
+  </table>
+</div>
+
+<!-- Weapon Button -->
+<button class="button-styled" onclick="toggleWeaponPanel()" id="weaponToggleBtn">☰ Equipment
+</button>
+
+  <div id="mainContent">
+
+  <!-- Container -->
+  <div id="threeZoneContainer">
+
+    <!-- 1 -->
+    <div id="zone1"  style="width: 30%;">
+  <h1>Player 1</h1>
+
+  <div style="display: flex; gap: 5px; justify-content: flex-end; flex-wrap: wrap;">
+    <select id="weapon1Select" style="width: 48%; font-size: 12px; border: 2px solid black;"></select>
+    <select id="weapon2Select" style="width: 48%; font-size: 12px; border: 2px solid black;"></select>
+  </div>
+
+  <div style="margin-top: -20px; text-align: center; width: 100%;">
+  <button class="button-styled" onclick="simulate()">Battle!</button>
+  </div>
+
+  <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end;">
+    <select id="weapon3Select" style="width: 48%; font-size: 12px;"></select>
+    <select id="weapon4Select" style="width: 48%; font-size: 12px;"></select>
+    <select id="weapon5Select" style="width: 48%; font-size: 12px;"></select>
+    <select id="weapon6Select" style="width: 48%; font-size: 12px;"></select>
+    <select id="weapon7Select" style="width: 48%; font-size: 12px;"></select>
+    <select id="weapon8Select" style="width: 48%; font-size: 12px;"></select>
+  </div>
+      <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end;">
+        <label for="strength">Pet Strength:</label>
+        <select id="strength" style="width: 48%; font-size: 12px;">
+          <option value="0.5">Less than 7</option>
+          <option value="0.75">8 to 12</option>
+          <option value="1">13 to 19</option>
+          <option value="1.25">20 to 34</option>
+          <option value="1.5">35 to 54</option>
+          <option value="2">55 to 84</option>
+          <option value="2.5">85 to 124</option>
+          <option value="3">125 to 199</option>
+          <option value="4.5">200 to 249</option>
+          <option value="5.5">250 to 299</option>
+          <option value="6.5">300 to 349</option>
+          <option value="7.5">350 to 399</option>
+          <option value="8.5">400 to 449</option>
+          <option value="9.75">450 to 499</option>
+          <option value="11">500 to 549</option>
+          <option value="12">550 to 599</option>
+          <option value="13">600 to 649</option>
+          <option value="14">650 to 699</option>
+          <option value="15">700 to 749</option>
+          <option value="16">750 to 799</option>
+          <option value="17">800 to 849</option>
+          <option value="18">850 or Greater</option>
+        </select>
+      </div>
+
+      <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end;">
+        <label for="ability">Ability:</label>
+        <select id="ability" style="width: 48%; font-size: 12px;">
+          <option value="None">None</option>
+          <option value="Halitosis">Halitosis</option>
+          <option value="Static Cling">Static Cling</option>
+          <option value="Drizzle">Drizzle</option>
+          <option value="Cranky">Cranky</option>
+          <option value="An Icicle">An Icicle</option>
+          <option value="Sear">Sear</option>
+          <option value="Irritable Minions">Irritable Minions</option>
+          <option value="Tempest">Tempest</option>
+          <option value="Rally Cry">Rally Cry</option>
+          <option value="Adrenaline Rush">Adrenaline Rush</option>
+          <option value="Meepit Stampede">Meepit Stampede</option>
+          <option value="Summon Monoceraptor">Summon Monoceraptor</option>
+          <option value="Esophagor Stench">Esophagor Stench</option>
+        </select>
+      </div>
+
+  <div id="weapon1Stats"></div>
+  <div id="weapon2Stats"></div>
+    </div>
+
+<!-- 2 -->
+<div id="zone2" style="width: 30%;">
+  <canvas id="iconChart" width="180" height="180"></canvas>
+
+  <!-- Defensive Coverage -->
+  <div id="defenseSummary" style="margin-top: 10px; display: flex; justify-content: center;">
+    <div class="calc-container">
+      <table id="defenseTable" style="text-align: center; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th></th>
+            <th><img src="https://ztarlet.github.io/dome-calc/icons/air_def.png" alt="Air" height="20"></th>
+            <th><img src="https://ztarlet.github.io/dome-calc/icons/dark_def.png" alt="Dark" height="20"></th>
+            <th><img src="https://ztarlet.github.io/dome-calc/icons/earth_def.png" alt="Earth" height="20"></th>
+            <th><img src="https://ztarlet.github.io/dome-calc/icons/fire_def.png" alt="Fire" height="20"></th>
+            <th><img src="https://ztarlet.github.io/dome-calc/icons/light_def.png" alt="Light" height="20"></th>
+            <th><img src="https://ztarlet.github.io/dome-calc/icons/water_def.png" alt="Water" height="20"></th>
+            <th><img src="https://ztarlet.github.io/dome-calc/icons/physical_def.png" alt="Physical" height="20"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="p1DefenseRow"><td><strong>P1</strong></td></tr>
+          <tr id="p2DefenseRow"><td><strong>P2</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Constants Calc -->
+  <div style="display: flex; justify-content: center; margin-top: 10px;">
+    <div class="calc-container" id="result"></div>
+  </div>
+</div>
+
+    <!-- 3 -->
+    <div id="zone3"  style="width: 30%;">
+    <h1>Player 2</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-start;">
+      <select id="opponentWeapon1" style="width: 48%; font-size: 12px;"></select>
+      <select id="opponentWeapon2" style="width: 48%; font-size: 12px;"></select>
+      <select id="opponentWeapon3" style="width: 48%; font-size: 12px;"></select>
+      <select id="opponentWeapon4" style="width: 48%; font-size: 12px;"></select>
+      <select id="opponentWeapon5" style="width: 48%; font-size: 12px;"></select>
+      <select id="opponentWeapon6" style="width: 48%; font-size: 12px;"></select>
+      <select id="opponentWeapon7" style="width: 48%; font-size: 12px;"></select>
+      <select id="opponentWeapon8" style="width: 48%; font-size: 12px;"></select>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="weapons.js"></script>
+  <script src="script.js"></script>
+</body>
+</div>
+</html>
