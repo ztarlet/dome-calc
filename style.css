@@ -74,7 +74,11 @@ button.button-styled {
   position: absolute;
   top: 12px;
   right: 16px;
-  z-index: 100001;
+  z-index: 1000;
+  width: auto !important;
+  min-width: unset !important;
+  max-width: unset !important;
+  display: inline-block !important;
 }
 
 #result {
@@ -233,6 +237,7 @@ p {
   padding: 4px 6px;
   font-size: 12px;
 }
+
 
 
 
