@@ -71,7 +71,6 @@ button.button-styled {
 
 #weaponToggleBtn {
   position: absolute;
-  top: 25px;
   right: 16px;
   z-index: 1000;
   width: auto !important;
@@ -241,6 +240,7 @@ p {
   padding: 4px 6px;
   font-size: 12px;
 }
+
 
 
 
