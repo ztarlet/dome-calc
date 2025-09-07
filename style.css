@@ -1,23 +1,23 @@
-* {
-  box-sizing: border-box;
-  
-}
-body {
+html, body {
   height: 100%;
-  overflow: auto;
-  box-sizing: border-box;
   min-height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+body {
   font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
   font-size: 15px;
   line-height: 1.5;
   letter-spacing: 1px;
   background: linear-gradient(
-  145deg,
-  #f4f4f4 0%,
-  #e0f0ff 40%,
-  #f4f4f4 100%
-);
-  margin: 20px;
+    145deg,
+    #f4f4f4 0%,
+    #e0f0ff 40%,
+    #f4f4f4 100%
+  );
   color: #333;
 }
 
@@ -200,16 +200,16 @@ p {
 }
 
 #threeZoneContainer {
-  height: 100vh;
+  height: 100%;
   min-height: 100%;
+  margin-top: 0;
   box-sizing: border-box;
-  overflow: auto;
   display: flex;
   position: relative;
   justify-content: space-between;
   gap: 40px;
   align-items: flex-start;
-  margin-top: 10px;
+  overflow: auto;
 }
 
 #zone1, #zone2, #zone3 {
@@ -273,6 +273,7 @@ p {
     background: white;
     overflow: auto;
 }
+
 
 
 
