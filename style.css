@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
 }
 
 body {
@@ -200,7 +200,7 @@ p {
 }
 
 #threeZoneContainer {
-  height: calc(100% - 20px);
+  height: calc(100% - 200px);
   min-height: 100%;
   border: 2px solid red;
   margin-top: 0;
@@ -274,6 +274,7 @@ p {
     background: white;
     overflow: auto;
 }
+
 
 
 
